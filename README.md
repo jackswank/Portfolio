@@ -1,6 +1,6 @@
 # Portfolio
 
-# [Project 1: MNIST Dataset]() 
+# [Project 1: MNIST Dataset](https://github.com/jackswank/portfolio/blob/main/MNIST_Dataset.ipynb) 
 * This project used the MNIST dataset and divided it into training and testing sets.
 * 20% of the training set was used to create the validation set.
 * Handwritten digits 0 through 9 were labeled and categorized using subplots.

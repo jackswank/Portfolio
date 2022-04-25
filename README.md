@@ -10,11 +10,10 @@
 ![](https://github.com/jackswank/portfolio/blob/main/MNIST%20photo.png)
 
 
-# [Project 2: Ball Image Classifier](https://github.com/jackswank/portfolio/blob/main/Queue.cpp) 
-* 
-* 
-*
-* 
-* 
+# [Project 2: Queue Program](https://github.com/jackswank/portfolio/blob/main/Queue.cpp) 
+* Coded in C++
+* Menu is displayed after each action is completed to interact with the suer
+* Insert, Delete, and Display are the main operations
+* The order of the queue is preserved through the implementation	of int d
 
 ![](https://github.com/jackswank/portfolio/blob/main/Queue%20Photo.png)

@@ -1,0 +1,281 @@
+---
+title: "Hate Crimes"
+author: "Jack, Fatimah, Ghabrielle, Trinity, and Karla"
+date: "3/8/2021"
+output:
+  html_document: default
+---
+
+## Introduction
+
+> This dataset was created because of the spike in hate crimes in the US after the 2016 election. This data is used to help visualize and distribute the problem and analyze the increase in hate crimes in terms of inequality and income. The hate crimes data details the number of hate crimes in every state from 2010 to 2015. A hate crime is a prejudice based on religion, race, sex, sexual orientation, etc. This data lacks specificity and does not label what the reported hate crimes were based on (sexuality, race, religion, etc.). It also includes records of each states' Gini Index (gini_index), which measures income inequality and is a proportion of the median income of the state and the number of people living in metropolitan areas.Lastly, our group chose to focus on the data from the FBI rather than that from the SPLC (Southern Poverty Law Center) because the SPLC tracks and records hate crimes based on people's reports and the media. Also, the SPLC did not have any data regarding hate crimes prior to 2016. The FBI has data from earlier years, but the hate crimes are reported to the FBI from other agencies voluntarily.
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# install.packages("fivethirtyeight")
+library(fivethirtyeight)
+library(ggplot2)
+library(openintro)
+library(tidyverse)
+library(dplyr)
+library("plotly")
+hate_crimes2<-filter(hate_crimes, state!="District of Columbia")
+```
+
+## Is there a correlation between hate crimes and 2016 elections, wealth distribution, etc.?
+
+> Before we decided which variables to examine, we first cleaned up the data by filling in blank cells with either the mean or median of the variables' values and removing the non-numeric columns (i.e. state labels and abbreviations). Neatened data is shown in hate_crimes_2. Then, we constructed a correlation matrix to help us decide which variables to focus on. Ultimately, we decided to study how the states' Gini Index and share of Trump voters (2016 election) relate to the average annual hate crimes per 100k as reported by the FBI because they had the highest correlation coefficients.
+
+```{r}
+#Fills in blank cells
+#hate_crimes$share_non_citizen = ifelse(is.na(hate_crimes$share_non_citizen), ave(hate_crimes$share_non_citizen, FUN=function(x) median(x, na.rm=TRUE)), hate_crimes$share_non_citizen)
+hate_crimes$share_non_citizen = ifelse(is.na(hate_crimes$share_non_citizen), 
+                                       ave(hate_crimes$share_non_citizen, 
+                                           FUN=function(x) median(x, na.rm=TRUE)),
+                                       hate_crimes$share_non_citizen)
+hate_crimes$hate_crimes_per_100k_splc = ifelse(is.na(hate_crimes$hate_crimes_per_100k_splc), ave(hate_crimes$hate_crimes_per_100k_splc, FUN=function(x) mean(x, na.rm=TRUE)), hate_crimes$hate_crimes_per_100k_splc)
+hate_crimes$avg_hatecrimes_per_100k_fbi = ifelse(is.na(hate_crimes$avg_hatecrimes_per_100k_fbi), ave(hate_crimes$avg_hatecrimes_per_100k_fbi, FUN=function(x) mean(x, na.rm=TRUE)), hate_crimes$avg_hatecrimes_per_100k_fbi)
+
+#Gets rid of state labels/columns
+hate_crimes_2 = hate_crimes %>% 
+  select(median_house_inc, share_unemp_seas, share_pop_metro, share_pop_hs, share_non_citizen, 
+         share_white_poverty, gini_index, share_non_white, share_vote_trump, hate_crimes_per_100k_splc, avg_hatecrimes_per_100k_fbi)
+hate_crimes_2
+
+#Makes matrix
+corr_matrix <- cor(hate_crimes_2, method = c("pearson", "kendall", "spearman"))
+#install.packages("knitr")
+#install.packages("kableExtra")
+library(knitr)
+library(kableExtra)
+
+#Hides upper triangle
+upper <- round(corr_matrix, 7)
+upper[upper.tri(corr_matrix)]<-""
+upper<-as.data.frame(upper)
+
+#Print matrix
+kable(upper) %>%
+  kable_paper("hover", full_width = F)
+
+```
+
+## Which states have the highest rates of hate crimes?
+
+> The colors on the map look very homogeneous. This is because of a certain location that has a very high hate crime rate in comparison to the others, which is the District of Columbia. There is a higher amount of hate crimes in the northeastern United States in relation to the south. This could challenge the notion of the stereotypes put on southerners or perhaps it may just be easier to get away with this type of offense in the south.
+
+```{r}
+g <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showlakes = TRUE,
+  lakecolor = toRGB('white')
+)
+
+p1 <- plot_geo(hate_crimes, locationmode = 'USA-states') %>%
+  add_trace(
+    z = ~avg_hatecrimes_per_100k_fbi, locations = ~state_abbrev,
+    color = ~avg_hatecrimes_per_100k_fbi, colors = 'YlOrRd'
+  ) %>%
+  colorbar(title = "Average Hate Crimes per 100k") %>%
+  layout(
+    title = 'Average Hate Crimes Processed by FBI',
+    geo = g
+  )
+p1  
+```
+
+## Which states voted for Trump?
+
+> As seen on the map, about half of the results are above 50%.
+>There are noticeable concentrations in the central United States. Some states with the lowest shares of votes for Trump are California, Vermont, Hawaii, and District of Columbia all of which aren't swing states.
+
+```{r}
+g <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showlakes = TRUE,
+  lakecolor = toRGB('white')
+)
+
+p1 <- plot_geo(hate_crimes, locationmode = 'USA-states') %>%
+  add_trace(
+    z = ~share_vote_trump, locations = ~state_abbrev,
+    color = ~share_vote_trump, colors= "Reds"
+  ) %>%
+  colorbar(title = "Percent of Votes for Trump") %>%
+  layout(
+    title = 'Votes for Trump in 2016 Election',
+    geo = g
+  )
+p1  
+```
+
+## Is there a relation between share vote Trump and FBI reported hate crimes?
+
+> The downward trend is indicative of a negative correlation between the two variables. When analyzing the trendline, it may be observed that many states with a larger share of Trump voters had lower rates of hate crimes, as reported by the FBI. There may be a couple of reasons for this; for example, states with higher shares of Trump voters and a lower average number of hate crimes may have a lower minority population to which hate crimes would be committed against.
+
+```{r}
+ggplot(data = hate_crimes) +
+  geom_point(mapping = aes(x = share_vote_trump, y = avg_hatecrimes_per_100k_fbi ))+ 
+  stat_smooth(method = 'lm', aes(x = share_vote_trump, y = avg_hatecrimes_per_100k_fbi), se = FALSE) 
+```
+
+## Which states have the highest wealth disparity?
+
+> The Gini Index follows a geographical trend where the proportion generally increases as you look from north to south (with a few exceptions in the northeast). Locations with noticeably higher Gini Index proportions are the District of Columbia, New York, and Connecticut.
+
+```{r}
+g <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showlakes = TRUE,
+  lakecolor = toRGB('white')
+)
+
+p1 <- plot_geo(hate_crimes, locationmode = 'USA-states') %>%
+  add_trace(
+    z = ~gini_index, locations = ~state_abbrev,
+    color = ~gini_index, colors= "Greens"
+  ) %>%
+  colorbar(title = "Proportion of Gini Index") %>%
+  layout(
+    title = 'Gini Index in Each State',
+    geo = g
+  )
+p1  
+```
+
+## Is there a relation between Gini Index and FBI reported hate crimes?
+
+> The positive correlation between the 2016 Gini index and hate crimes as reported by the FBI shows a proportionate increase in hate crimes as the income inequality increases in each state. The relationship between hate crimes and income inequality seems to be stronger in the outlier DC because of their small population in comparison to other states.
+
+```{r}
+ggplot(data = hate_crimes) + 
+    geom_point(mapping = aes(x = gini_index, y = avg_hatecrimes_per_100k_fbi))+ 
+  stat_smooth(method = 'lm', aes(x = gini_index, y = avg_hatecrimes_per_100k_fbi), se = FALSE) 
+```
+
+## Conclusion
+
+> Because this data does not say the number of hate crimes committed after the election it is difficult to find a correlation. As shown by the data and plots, there is a moderate, negative correlation between Trump voters and the number of hate crimes, which was the opposite of what might be expected. Income inequality has the strongest positive correlation to hate crimes, showing that the states with larger income gaps have more annual hate crimes.
+
+## Appendix
+
+> There are other variables we found to be important when analyzing the data set; however, they were excluded from the main analysis in this project. This is primarily because when prioritizing the variables, we found them to be worth mentioning, but not essential to the primary purpose of this report.
+
+## What's the median income of each state?
+
+> This variable may indicate the wealth of a particular state; however, with a growing wealth disparity in the United States, our group determined that this measure may not be the most helpful. It is worth mentioning that median household income helps assess a state's economic well-being -- and plays a hand in the rate of hate crimes; but, this statistic was found to be vaguer and less helpful when compared to the Gini index.
+
+```{r}
+g <- list(
+  scope = 'usa',
+  projection = list(type = 'albers usa'),
+  showlakes = TRUE,
+  lakecolor = toRGB('white')
+)
+
+p1 <- plot_geo(hate_crimes, locationmode = 'USA-states') %>%
+  add_trace(
+    z = ~median_house_inc, locations = ~state_abbrev,
+    color = ~median_house_inc, colors= "Blues"
+  ) %>%
+  colorbar(title = "Median Amount of Household Income") %>%
+  layout(
+    title = 'Median Household Income',
+    geo = g
+  )
+p1  
+```
+
+## Is there a relation between median household income and FBI reported hate crimes?
+
+> The graph depicting the relationship between median household income and hate crimes shows an inverse trend to that indicated by the Gini Index and hate crimes plot. While this looks contradictory at first, the two variables (Gini Index and median household income) may be linked. Since the median household income is not affected by outliers, regions with higher medians may experience higher levels of income inequality and have a wider range of incomes. Therefore, if the positive relationship between Gini Index and hate crimes persists, it is logical for states with higher median household incomes to follow the same trend.
+
+```{r}
+ggplot(data = hate_crimes) +
+  geom_point(mapping = aes(x = median_house_inc, y = avg_hatecrimes_per_100k_fbi ))+ 
+  stat_smooth(method = 'lm', aes(x = median_house_inc, y = avg_hatecrimes_per_100k_fbi), se = FALSE) 
+```
+
+## Is there a relation between the Gini Index and share vote Trump?
+
+> We also acknowledge that an individual's economic position likely contributed to their decision in the 2016 election. Our group found it interesting to assess the relationship between economic inequality and the ratio of people in a population who voted for Trump during the 2016 election because he attracted both low-income voters and high-income voters with various promises he had made during his campaign. We thought it might be important to assess, between both hate crimes and the Gini index, which one had the highest correlation with votes for Trump.
+
+```{r}
+ggplot(data = hate_crimes) + 
+    geom_point(mapping = aes(x = gini_index, y = share_vote_trump))+ 
+  stat_smooth(method = 'lm', aes(x = gini_index, y = share_vote_trump), se = FALSE) 
+```
+
+## Is there a relation between the share of non-citizens in a population and hate crimes?
+
+> Our group found that the relationship between the share of non-citizens in a region and the number of hate crimes in the said region should also be assessed. This is because we predicted that as the population of minorities increased, the average amount of hate crimes will also increase since there would be more likely targets in a given area. To put it simply, areas with a lower minority population to be discriminated against would likely have fewer hate crimes reported.
+
+```{r}
+ggplot(data = hate_crimes) + 
+    geom_point(mapping = aes(x = share_non_citizen, y = avg_hatecrimes_per_100k_fbi))+ 
+  stat_smooth(method = 'lm', aes(x = share_non_citizen, y = avg_hatecrimes_per_100k_fbi), se = FALSE) 
+```
+
+## Does DC make a difference?
+
+> After feedback from our peers and Dr. Lanning it was recommended that we should exclude DC from our data and observe how it changes.
+
+## Votes for Trump vs. Hate Crimes, excluding DC:
+
+```{r}
+ggplot(data = hate_crimes2) + 
+    geom_point(mapping = aes(x = share_vote_trump, y = avg_hatecrimes_per_100k_fbi))+ 
+  stat_smooth(method = 'lm', aes(x = share_vote_trump, y = avg_hatecrimes_per_100k_fbi), se = FALSE) 
+
+```
+
+## Gini Index vs. Hate Crimes, excluding DC:
+
+```{r}
+ggplot(data = hate_crimes2) + 
+    geom_point(mapping = aes(x = gini_index, y = avg_hatecrimes_per_100k_fbi))+ 
+  stat_smooth(method = 'lm', aes(x = gini_index, y = avg_hatecrimes_per_100k_fbi), se = FALSE) 
+
+```
+
+## Appendix, excluding DC:
+
+## Income vs. Hate Crimes, excluding DC:
+
+```{r}
+ggplot(data = hate_crimes2) + 
+    geom_point(mapping = aes(x = median_house_inc, y = avg_hatecrimes_per_100k_fbi))+ 
+  stat_smooth(method = 'lm', aes(x = median_house_inc, y = avg_hatecrimes_per_100k_fbi), se = FALSE) 
+
+```
+
+## Gini Index vs. Trump Votes, excluding DC:
+
+```{r}
+ggplot(data = hate_crimes2) + 
+    geom_point(mapping = aes(x = gini_index, y = share_vote_trump))+ 
+  stat_smooth(method = 'lm', aes(x = gini_index, y = share_vote_trump), se = FALSE) 
+```
+
+## Non-citizen vs. Hate Crimes, excluding DC:
+
+```{r}
+ggplot(data = hate_crimes2) + 
+    geom_point(mapping = aes(x = share_non_citizen, y = avg_hatecrimes_per_100k_fbi))+ 
+  stat_smooth(method = 'lm', aes(x = share_non_citizen, y = avg_hatecrimes_per_100k_fbi), se = FALSE) 
+```
+
+## Contributions
+
+> Jack: Organizing and putting together the R markdown document, creation of US maps and corresponding descriptions.
+
+> Fatimah: Organizing, writing introduction, conclusion and appendix, found useful resources.
+
+> Ghaby: Organizing, created correlation coefficient graphs and their descriptions, appendix, found useful resources.
+
+> Karla: Organizing, appendix, description of correlation coefficient graphs, found useful resources.
+
+> Trinity: Organizing, created correlation matrix and description, appendix, found useful resources.

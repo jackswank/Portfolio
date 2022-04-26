@@ -11,9 +11,18 @@
 
 
 # [Project 2: Queue Program](https://github.com/jackswank/portfolio/blob/main/Queue.cpp) 
-* Coded in C++
-* Menu is displayed after each action is completed to interact with the suer
-* Insert, Delete, and Display are the main operations
-* The order of the queue is preserved through the implementation	of int d
+* Coded in C++.
+* Menu is displayed after each action is completed to interact with the user.
+* Insert, Delete, and Display are the main operations.
+* The order of the queue is preserved through the implementation	of int d.
 
 ![](https://github.com/jackswank/portfolio/blob/main/Queue%20Photo.png)
+
+
+# [Project 3: Number Guessing Game](https://github.com/jackswank/portfolio/blob/main/NumberGuessingGame.cpp) 
+* Coded in C++.
+* Utilizes public and private access specifiers.
+* Has three different levels of difficulty. 
+* Loops until user decides to quit. 
+
+![](https://github.com/jackswank/portfolio/blob/main/Guessing%20Game%20Photo.png)

@@ -7,8 +7,8 @@
 creation of US maps, and corresponding descriptions.
 * Implemented data filtering through the exclusion of DC in some results.
 
-![](https://github.com/jackswank/portfolio/blob/main/Average%20Hate%20Crimes%20Processed%20by%20FBI.png)
-![](https://github.com/jackswank/portfolio/blob/main/Gini%20Index.png)
+![](/Photos/Average Hate Crimes Processed by FBI.png)
+![](/Photos/Gini Index.png)
 
 # [Project 2: MNIST Dataset](https://github.com/jackswank/portfolio/blob/main/MNIST_Dataset.ipynb) 
 * Coded in Python through Google Colaboratory.
@@ -17,7 +17,7 @@ creation of US maps, and corresponding descriptions.
 * Handwritten digits 0 through 9 were labeled and categorized using subplots.
 * Images are selected randomly, which gives different results each time the program is run.
 
-![](https://github.com/jackswank/portfolio/blob/main/MNIST%20photo.png)
+![](/Photos/MNIST photo.png)
 
 
 # [Project 3: Queue Program](https://github.com/jackswank/portfolio/blob/main/Queue.cpp) 
@@ -26,7 +26,7 @@ creation of US maps, and corresponding descriptions.
 * Insert, Delete, and Display are the main operations.
 * The order of the queue is preserved through the implementation	of int d.
 
-![](https://github.com/jackswank/portfolio/blob/main/Queue%20Photo.png)
+![](/Photos/Queue Photo.png)
 
 
 # [Project 4: Number Guessing Game](https://github.com/jackswank/portfolio/blob/main/NumberGuessingGame.cpp) 
@@ -35,4 +35,4 @@ creation of US maps, and corresponding descriptions.
 * Has three different levels of difficulty. 
 * Loops until user decides to quit. 
 
-![](https://github.com/jackswank/portfolio/blob/main/Guessing%20Game%20Photo.png)
+![](/Photos/Guessing Game Photo.png)

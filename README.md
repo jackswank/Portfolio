@@ -8,7 +8,8 @@ creation of US maps, and corresponding descriptions.
 * Implemented data filtering through the exclusion of DC in some results.
 
 ![](/images/Average_Hate_Crimes_Processed_by_FBI.png)
-![](//images/Gini_Index.png)
+![](/images/Gini_Index.png)
+
 
 # [Project 2: MNIST Dataset](https://github.com/jackswank/portfolio/blob/main/MNIST_Dataset.ipynb) 
 * Coded in Python through Google Colaboratory.

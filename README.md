@@ -1,6 +1,17 @@
 # Portfolio - Jack Swank
 
-# [Project 1: Hate Crimes Database Project](https://github.com/jackswank/portfolio/blob/main/Hate_Crimes_Jack_Swank.Rmd) 
+# [Project 1: Honors Data Analytics Thesis](https://github.com/jackswank/portfolio/blob/main/Hate_Crimes_Jack_Swank.Rmd) 
+* Prototyped in Python and created using R and Tableau.
+* Year long project where this research was presented at a symposim and written into an honors thesis.
+* The tool created allows for users to select different combinations of choices using dynamic user interfaces to determine expected salary.
+* Bridges CIP and SOC codes by utilizing a crosswalk and incorporates neural networks and t-tests. 
+
+![](/images/Average_Hate_Crimes_Processed_by_FBI.png)
+![](/images/Gini_Index.png)
+
+
+
+# [Project 3: Hate Crimes Database Project](https://github.com/jackswank/portfolio/blob/main/Hate_Crimes_Jack_Swank.Rmd) 
 * Coded in R through RStudio Cloud.
 * Data from fivethirtyeight package, specifically, the hate_crimes dataset.
 * Group project where I was the leader and responsible for the R markdown document, 
@@ -11,7 +22,7 @@ creation of US maps, and corresponding descriptions.
 ![](/images/Gini_Index.png)
 
 
-# [Project 2: MNIST Dataset](https://github.com/jackswank/portfolio/blob/main/MNIST_Dataset.ipynb) 
+# [Project 4: MNIST Dataset](https://github.com/jackswank/portfolio/blob/main/MNIST_Dataset.ipynb) 
 * Coded in Python through Google Colaboratory.
 * Used the MNIST dataset and divided it into training and testing sets.
 * 20% of the training set was used to create the validation set.
@@ -21,7 +32,7 @@ creation of US maps, and corresponding descriptions.
 ![](/images/MNIST_photo.png)
 
 
-# [Project 3: Queue Program](https://github.com/jackswank/portfolio/blob/main/Queue.cpp) 
+# [Project 5: Queue Program](https://github.com/jackswank/portfolio/blob/main/Queue.cpp) 
 * Coded in C++.
 * Menu is displayed after each action is completed to interact with the user.
 * Insert, Delete, and Display are the main operations.
@@ -30,7 +41,7 @@ creation of US maps, and corresponding descriptions.
 ![](/images/Queue_Photo.png)
 
 
-# [Project 4: Number Guessing Game](https://github.com/jackswank/portfolio/blob/main/NumberGuessingGame.cpp) 
+# [Project 6: Number Guessing Game](https://github.com/jackswank/portfolio/blob/main/NumberGuessingGame.cpp) 
 * Coded in C++.
 * Utilizes public and private access specifiers.
 * Has three different levels of difficulty. 

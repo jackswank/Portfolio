@@ -1,14 +1,22 @@
 # Portfolio - Jack Swank
 
-# [Project 1: Honors Data Analytics Thesis](https://github.com/jackswank/portfolio/blob/main/Hate_Crimes_Jack_Swank.Rmd) 
+# [Project 1: Honors Data Analytics Thesis](https://github.com/jackswank/Portfolio/tree/main/Honors_Thesis) 
 * Prototyped in Python and created using R and Tableau.
 * Year long project where this research was presented at a symposim and written into an honors thesis.
 * The tool created allows for users to select different combinations of choices using dynamic user interfaces to determine expected salary.
 * Bridges CIP and SOC codes by utilizing a crosswalk and incorporates neural networks and t-tests. 
 
-![](/images/Average_Hate_Crimes_Processed_by_FBI.png)
-![](/images/Gini_Index.png)
+![](/images/Postgraduate_Education.png)
+![](/images/Symposium_Presentation.png)
 
+
+# [Project 2: Interactive CV](https://public.tableau.com/app/profile/jack2956/viz/CVFinal_16816964173680/CVFinal) 
+* Created in Tableau.
+* Data created by myself to showcase particular skills.
+* Displays past projects and interactively presents information.
+
+![](/images/Fluency.png)
+![](/images/CV_Final.png)
 
 
 # [Project 3: Hate Crimes Database Project](https://github.com/jackswank/portfolio/blob/main/Hate_Crimes_Jack_Swank.Rmd) 

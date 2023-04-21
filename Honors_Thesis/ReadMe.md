@@ -1,1 +1,1 @@
-# [Project 1: Salary Tool in Tableau](https://public.tableau.com/app/profile/jack2956/viz/SalaryPredictionSearchHowUniversityConcentrationDegreeLevelandCohortYearImpactFutureEarnings/EarningsbyMajorGroupBachelorsDegree?publish=yes)
+# [Salary Tool in Tableau](https://public.tableau.com/app/profile/jack2956/viz/SalaryPredictionSearchHowUniversityConcentrationDegreeLevelandCohortYearImpactFutureEarnings/EarningsbyMajorGroupBachelorsDegree?publish=yes)

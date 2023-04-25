@@ -2,9 +2,10 @@
 
 # [Project 1: Honors Data Analytics Thesis](https://github.com/jackswank/Portfolio/tree/main/Honors_Thesis) 
 * Prototyped in Python and created using R and Tableau.
-* Year long project where this research was presented at a symposim and written into an honors thesis.
-* The tool created allows for users to select different combinations of choices using dynamic user interfaces to determine expected salary.
-* Bridges CIP and SOC codes by utilizing a crosswalk and incorporates neural networks and t-tests. 
+* Year-long project where this research was presented at a symposium and written into an honors thesis.
+* The tool created allows users to select different combinations of choices using dynamic user interfaces to determine their expected salary.
+* Bridges CIP and SOC codes by utilizing a crosswalk.
+* Incorporates all areas of data science (domain expertise, computer science, and statistics).
 
 ![](/images/Postgraduate_Education.png)
 ![](/images/Symposium_Presentation.png)
@@ -12,7 +13,7 @@
 
 # [Project 2: Interactive CV](https://public.tableau.com/app/profile/jack2956/viz/CVFinal_16816964173680/CVFinal) 
 * Created in Tableau.
-* Data created by myself to showcase particular skills.
+* Uses self-produced data to showcase individual skills.
 * Displays past projects and interactively presents information.
 
 ![](/images/Fluency.png)
@@ -53,6 +54,6 @@ creation of US maps, and corresponding descriptions.
 * Coded in C++.
 * Utilizes public and private access specifiers.
 * Has three different levels of difficulty. 
-* Loops until user decides to quit. 
+* Loops until the user decides to quit. 
 
 ![](/images/Guessing_Game_Photo.png)

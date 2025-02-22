@@ -11,16 +11,7 @@
 ![](/images/Symposium_Presentation.png)
 
 
-# [Project 2: Interactive CV](https://public.tableau.com/app/profile/jack2956/viz/CVFinal_16816964173680/CVFinal) 
-* Created in Tableau.
-* Uses self-produced data to showcase individual skills.
-* Displays past projects and interactively presents information.
-
-![](/images/Fluency.png)
-![](/images/CV_Final.png)
-
-
-# [Project 3: Hate Crimes Database Project](https://github.com/jackswank/portfolio/blob/main/Hate_Crimes_Jack_Swank.Rmd) 
+# [Project 2: Hate Crimes Database Project](https://github.com/jackswank/portfolio/blob/main/Hate_Crimes_Jack_Swank.Rmd) 
 * Coded in R through RStudio Cloud.
 * Data from fivethirtyeight package, specifically, the hate_crimes dataset.
 * Group project where I was the leader and responsible for the R markdown document, 
@@ -31,7 +22,7 @@ creation of US maps, and corresponding descriptions.
 ![](/images/Gini_Index.png)
 
 
-# [Project 4: MNIST Dataset](https://github.com/jackswank/portfolio/blob/main/MNIST_Dataset.ipynb) 
+# [Project 3: MNIST Dataset](https://github.com/jackswank/portfolio/blob/main/MNIST_Dataset.ipynb) 
 * Coded in Python through Google Colaboratory.
 * Used the MNIST dataset and divided it into training and testing sets.
 * 20% of the training set was used to create the validation set.
@@ -41,19 +32,3 @@ creation of US maps, and corresponding descriptions.
 ![](/images/MNIST_photo.png)
 
 
-# [Project 5: Queue Program](https://github.com/jackswank/portfolio/blob/main/Queue.cpp) 
-* Coded in C++.
-* Menu is displayed after each action is completed to interact with the user.
-* Insert, Delete, and Display are the main operations.
-* The order of the queue is preserved through the implementation	of int d.
-
-![](/images/Queue_Photo.png)
-
-
-# [Project 6: Number Guessing Game](https://github.com/jackswank/portfolio/blob/main/NumberGuessingGame.cpp) 
-* Coded in C++.
-* Utilizes public and private access specifiers.
-* Has three different levels of difficulty. 
-* Loops until the user decides to quit. 
-
-![](/images/Guessing_Game_Photo.png)

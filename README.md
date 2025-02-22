@@ -1,6 +1,6 @@
 # Portfolio - Jack Swank
 
-# [Project 1: Honors Data Analytics Thesis](https://github.com/jackswank/Portfolio/tree/main/Honors_Thesis) 
+# [<ins>Project 1: Honors Data Analytics Thesis</ins>](https://github.com/jackswank/Portfolio/tree/main/Honors_Thesis) 
 * Prototyped in Python and created using R and Tableau.
 * Year-long project where this research was presented at a symposium and written into an honors thesis.
 * The tool created allows users to select different combinations of choices using dynamic user interfaces to determine their expected salary.

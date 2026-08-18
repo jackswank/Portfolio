@@ -17,7 +17,7 @@ An end-to-end financial modeling and forecasting project analyzing historical Pr
 * **Financial Modeling & Forecasting:** Time-series revenue trend analysis, triple exponential smoothing model, variance analysis,
 * **Data Structuring & Analysis:** Clean tabular data architecture across multi-period historical, projected, and actual financial datasets using Google Sheets/Excel workflows.
 
-![](/images/Revenue by Quarter.png)
+![](Revenue_by_Quarter.png)
 
 
 # [<ins>Project 3: Hate Crimes Database Project</ins>](https://github.com/jackswank/portfolio/blob/main/Hate_Crimes_Jack_Swank.Rmd) 

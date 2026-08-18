@@ -11,7 +11,18 @@ A year-long, capstone research project culminating in a dynamic web application 
 ![](/images/Symposium_Presentation.png)
 
 
-# [<ins>Project 2: Hate Crimes Database Project</ins>](https://github.com/jackswank/portfolio/blob/main/Hate_Crimes_Jack_Swank.Rmd) 
+# [<ins>Project 2: GVA Forecasting Project</ins>](https://docs.google.com/spreadsheets/d/12cFYll76pGwqjF96po3n9vlQXLalAmKP_CWRZQp77K4/edit?usp=sharing) 
+An end-to-end financial modeling and forecasting project analyzing historical Profit & Loss statements for Granite Construction Inc. (NYSE: GVA) to build quarterly revenue, expense, and net income forecasts (2026 Q1E–Q2E), followed by a formal Forecast vs. Actual variance analysis.
+* **Technical Stack:** Google Sheets/Excel
+* **Financial Modeling & Forecasting:** Time-series revenue trend analysis, triple exponential smoothing model, variance analysis,
+* **Data Structuring & Analysis:** Clean tabular data architecture across multi-period historical, projected, and actual financial datasets using Google Sheets/Excel workflows.
+
+![](/images/Revenue by Quarter (in thousands).png)
+
+
+
+
+# [<ins>Project 3: Hate Crimes Database Project</ins>](https://github.com/jackswank/portfolio/blob/main/Hate_Crimes_Jack_Swank.Rmd) 
 A team-lead exploratory data analysis project focused on identifying regional trends and statistical disparities within historical US hate crime incidents.
 * **Technical Stack:** R (RStudio Cloud), R Markdown (for reproducible reporting and documentation).
 * **Data Methodology:** Performed advanced data filtering and data quality assessment on the fivethirtyeight dataset, specifically implementing exclusions (e.g., removing D.C.) to prevent skewing measures of central tendency.
@@ -21,7 +32,7 @@ A team-lead exploratory data analysis project focused on identifying regional tr
 ![](/images/Gini_Index.png)
 
 
-# [<ins>Project 3: MNIST Dataset</ins>](https://github.com/jackswank/portfolio/blob/main/MNIST_Dataset.ipynb) 
+# [<ins>Project 4: MNIST Dataset</ins>](https://github.com/jackswank/portfolio/blob/main/MNIST_Dataset.ipynb) 
 A fundamental machine learning project demonstrating proficiency in image data preprocessing, model training, and evaluation for image classification.
 * **Technical Stack:** Python (Coded in Google Colaboratory), leveraging libraries like Keras, NumPy, and Matplotlib.
 * **Model Preparation:** Implemented a rigorous data split strategy, reserving 20% of the training data for a dedicated validation set to monitor and prevent model overfitting.

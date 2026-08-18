@@ -14,7 +14,7 @@ A year-long, capstone research project culminating in a dynamic web application 
 # [<ins>Project 2: GVA Forecasting Project</ins>](https://docs.google.com/spreadsheets/d/12cFYll76pGwqjF96po3n9vlQXLalAmKP_CWRZQp77K4/edit?usp=sharing) 
 An end-to-end financial modeling and forecasting project analyzing historical Profit & Loss statements for Granite Construction Inc. (NYSE: GVA) to build quarterly revenue, expense, and net income forecasts (2026 Q1E–Q2E), followed by a formal Forecast vs. Actual variance analysis.
 * **Technical Stack:** Google Sheets/Excel
-* **Financial Modeling & Forecasting:** Time-series revenue trend analysis, triple exponential smoothing model, variance analysis,
+* **Financial Modeling & Forecasting:** Time-series revenue trend analysis, triple exponential smoothing model, and variance analysis.
 * **Data Structuring & Analysis:** Clean tabular data architecture across multi-period historical, projected, and actual financial datasets using Google Sheets/Excel workflows.
 
 ![](/images/Revenue_by_Quarter.png)
